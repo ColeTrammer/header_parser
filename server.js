@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
-
+    const response = {};
+    response.ipaddress = req.ip;
+    res.send(response);
 })
 
 app.listen(process.env.PORT || 3000, () => {
