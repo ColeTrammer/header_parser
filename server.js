@@ -3,7 +3,7 @@ const app = express();
 
 app.get("/", (req, res) => {
     const response = {};
-    response.ipaddress = req.ip;
+    response.ipaddress = req.ip.includes("::ffff:") ? req.ip.substr(7) : req.ip;
     res.send(response);
 })
 
